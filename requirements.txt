@@ -1,0 +1,8 @@
+# Core dependencies only - let Streamlit handle its own dependencies
+streamlit==1.27.2
+pandas==1.5.3
+numpy==1.23.5
+scikit-learn==1.2.2
+joblib==1.2.0
+plotly==5.13.1
+
