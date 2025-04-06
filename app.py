@@ -6,7 +6,7 @@ import joblib
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 import plotly.graph_objects as go
-from model import LinearRegressionModel
+
 
 # Set page config
 st.set_page_config(
