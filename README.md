@@ -2,10 +2,6 @@
 ```markdown
 # 📈 Nigerian Stock Market Predictor
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nigerian-stock-market-price-prediction-web.streamlit.app/)
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 An end-to-end Machine Learning pipeline that predicts stock prices for **10 major blue-chip companies** listed on the **Nigerian Stock Exchange (NSE)**. This project handles multi-sector financial data (Banking, FMCG, Telco, etc.) and serves the model via an interactive web interface.
 
 > **🔴 Live Demo:** [Click here to test the application](https://nigerian-stock-market-price-prediction-web.streamlit.app/)
@@ -80,3 +76,4 @@ streamlit run app.py
 
 
 ```
+
