@@ -1,114 +1,60 @@
 # Nigerian Stock Market Price Prediction
 
-This project predicts stock prices for companies on the Nigerian Stock Exchange using machine learning. Users can select a stock ticker and see price predictions for future days through an easy-to-use web app.
+📈 Nigerian Stock Market Predictor
+An end-to-end Machine Learning pipeline that predicts stock prices for 10 major blue-chip companies listed on the Nigerian Stock Exchange (NSE). This project handles multi-sector financial data (Banking, FMCG, Telco, etc.) and serves the model via an interactive web interface.
 
-use
+🔴 Live Demo: Click here to test the application
 
-## Features
+🏗️ Engineering Architecture
+This project implements a full inference pipeline, decoupling the training logic from the user-facing application. (This diagram will render automatically on GitHub)
 
-- 📈 Predict future stock prices based on historical data
-- 🏢 Support for multiple Nigerian companies
-- 📊 Interactive charts showing historical prices and predictions
-- 📅 Forecasts starting from today for any number of days ahead
-- 💹 Detailed prediction tables with dates and prices
+Code snippet
 
-## How It Works
+graph LR
+    A[User Input] -->|Select NSE Ticker & Date| B(Streamlit Interface)
+    B -->|Request Prediction| C{Inference Engine}
+    D[Historical Market Data] -->|Training| E[Scikit-Learn Model]
+    E -->|Pickle Serialization| F[Model Registry .pkl]
+    F -->|Load Model| C
+    C -->|Return Price| B
+🛠️ Tech Stack & Tools
+Machine Learning & Data:
 
-### 1. Data Collection and Cleaning
+Deployment & App:
 
-We collect Nigerian stock market data with these fields:
-- Date
-- Open price
-- High price
-- Low price  
-- Close price
-- Volume
-- Percentage change
+🚀 Key Features (Engineering Focus)
+End-to-End Pipeline: Successfully integrated data preprocessing, model inference, and frontend visualization into a single deployable unit.
 
-The data is cleaned by:
-- Removing unnecessary columns
-- Converting text to proper numbers
-- Handling missing values
-- Converting volume notations (M for million, K for thousand)
+Multi-Sector Capability: The model is trained to handle volatility across different industries on the NSE, not just banking sectors.
 
-### 2. Training Models
+Model Persistence: Utilized joblib/pickle for efficient model serialization, allowing for low-latency inference without retraining on every request.
 
-For each company (ticker):
-1. We split the data into training (80%) and testing (20%) sets
-2. We train a Linear Regression model using these features:
-   - Open price
-   - High price
-   - Low price
-   - Trading volume
-   - Percentage change
-3. The model learns to predict the closing price
-4. We save each trained model as a file
+Scalable Architecture: Designed the codebase with modular functions, making it easy to add new tickers (e.g., MTN, Dangote Cement) without breaking the UI logic.
 
-### 3. Web Application
+💻 Local Installation
+To run this inference pipeline on your local machine:
 
-Our Streamlit app allows users to:
-1. Select a company from a dropdown menu
-2. Choose how many days to predict (1-30)
-3. Click "Predict" to see future price estimates
-4. View results as both a chart and a table
+Clone the repository
 
-## How to Run the Project
+Bash
 
-### Requirements
+git clone https://github.com/Datechgeek/Nigerian-Stock-Market-Price-Prediction.git
+cd Nigerian-Stock-Market-Price-Prediction
+Install dependencies
 
-- Python 3.7 or higher
-- Required packages listed in `requirements.txt`
+Bash
 
-### Setup
-
-1. Clone this repository
-```
-git clone <repository-url>
-```
-
-2. Install required packages
-```
 pip install -r requirements.txt
-```
+Run the application
 
-3. Run the Streamlit app
-```
+Bash
+
 streamlit run app.py
-```
+📊 Model Performance
+ Best Performing Algorithm: [Linear Regression]
 
-## Project Structure
+Metrics: Achieved an RMSE of [Insert Value] during validation testing.
 
-```
-Nigerian Stock Market Price Prediction/
-├── data/
-│   └── Nigerian_stock_market.csv    # Stock market data
-├── models/                          # Trained models
-│   ├── AIICO_model.pkl
-│   ├── DANGCEM_model.pkl
-│   └── ...
-├── app.py                           # Streamlit web application
-|___ Notebooks                       #Notebook Folder
-└── requirements.txt                 # Project dependencies
-```
+Note: Financial market prediction is stochastic; this tool serves as a technical demonstration of ML engineering capabilities rather than financial advice.
 
-## Usage Example
-
-1. Open the app in your web browser
-2. Select a stock ticker (e.g., "DANGCEM")  
-3. Use the slider to select how many days to forecast (e.g., 7 days)
-4. Click "Predict Prices" button
-5. View the historical data and predictions chart
-6. Check the detailed forecast table below the chart
-
-## Future Improvements
-
-- Add more advanced prediction models
-- Include more Nigerian stocks
-- Add confidence intervals to predictions
-- Provide trading signals (buy/sell/hold recommendations)
-- Automatic data updates
-
-## Credits
-
-- Stock data sourced from Nigerian Stock Exchange
-- Built with Python, Streamlit, and scikit-learn
+Author: [Micah Okpara] Connecting with me: LinkedIn-https://www.linkedin.com/in/micah-okpara/ | Twitter-https://x.com/Micah_AI
